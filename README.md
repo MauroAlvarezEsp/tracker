@@ -30,6 +30,82 @@ npm run build
 
 ```
 
+# Technical Documentation: Fleet Monitoring System
+
+## Overview
+This project is aimed at developing a web-based application for a transportation company to monitor its fleet in real time. The system includes functionalities for viewing vehicle positions on a map and accessing associated metadata. It also provides visualization tools for analyzing historical data and exporting it for reporting purposes.
+
+## Use Cases
+
+### 1. User Authentication and Authorization
+**Description:**  
+Provide a secure admin portal with options for signing in and out. Certain pages should be protected and only accessible to authenticated users.
+
+**Actors:**
+- Admin users (fleet managers)
+
+**Functionalities:**
+- Login and logout functionalities
+- Protected pages accessible only after authentication
+
+---
+
+### 2. Dashboard
+**Description:**  
+Display a dashboard with visualizations for analyzing fleet activity, specifically the kilometers traveled by vehicles over the last 15 days.
+
+**Actors:**
+- Admin users
+
+**Functionalities:**
+- Provide line chart, histogram, or bar chart (implementation is flexible) summarizing the history of kilometers traveled.
+- Include an option to export displayed data in a `.csv` format.
+
+---
+
+### 3. Real-Time Monitoring
+**Description:**  
+Enable monitoring of vehicles by displaying their real-time positions on a map and providing metadata associated with the vehicles.
+
+**Actors:**
+- Admin users
+
+**Functionalities:**
+- Display a map with the locations of vehicles based on their GPS coordinates.
+- Provide a table listing:
+  - Vehicle license plates
+  - Corresponding coordinates
+- Allow users to select a vehicle from the table, which highlights its position on the map.
+
+---
+
+## Implementation Notes
+
+### Technology Stack
+- **Frontend:** React.js or Angular (for building interactive user interfaces)
+- **Backend:** Node.js with Express.js or Python with Django/Flask (for server-side functionalities)
+- **Database:** PostgreSQL or MongoDB (for storing user data, vehicle metadata, and travel history)
+- **Mapping API:** Google Maps API, Mapbox, or similar (for real-time map display)
+- **Charts Library:** D3.js, Chart.js, or similar (for rendering visualizations)
+
+### Security Considerations
+- Use secure authentication methods such as OAuth or JWT tokens.
+- Ensure proper session management and data encryption.
+
+### Deployment
+- Deploy using cloud providers like AWS, Azure, or Google Cloud Platform.
+- Use CI/CD pipelines for streamlined development and deployment processes.
+
+### Future Enhancements
+- Add notifications for specific events (e.g., vehicles entering or leaving designated areas).
+- Integrate predictive analytics for vehicle maintenance.
+
+---
+
+## Conclusion
+This documentation outlines the primary use cases and technical requirements for the fleet monitoring system. The implementation approach ensures scalability, security, and a user-friendly interface.
+
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
