@@ -1,10 +1,15 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
+First, install dependencies:
+```bash
+npm run install
+```
 
 First, run the development server:
 
 ```bash
+# runs local with .env.evelopment file
 npm run dev
 # or
 yarn dev
@@ -12,6 +17,17 @@ yarn dev
 pnpm dev
 # or
 bun dev
+```
+
+Other commands:
+
+```bash
+# runs test and lint for validation before pushing
+npm run check
+
+# build for production 
+npm run build
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
