@@ -4,7 +4,7 @@ import { parse } from 'json2csv';
 import { dataMock } from '../mocks';
 
 
-export function GET(req: NextApiRequest, res: NextApiResponse): Response {
+export function GET(): Response {
     try {
 
         // Convert JSON data to CSV format

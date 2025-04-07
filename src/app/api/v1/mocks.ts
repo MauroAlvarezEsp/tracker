@@ -1,6 +1,6 @@
 import { TrackData } from "@/types/TrackData";
-import { getRandomCoordinates } from "./tracking/route";
 import { User } from "@/types/User";
+import { getRandomCoordinates } from "@/utils/utils";
 
 export const dataMock: { data: TrackData[] } = {
     data: [
