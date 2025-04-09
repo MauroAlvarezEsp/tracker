@@ -1,3 +1,4 @@
+import { TrackData } from "@/types/TrackData";
 import { z } from "zod";
 
 export const loginSchema = z.object({
@@ -66,4 +67,30 @@ export function getRandomCoordinates(): { lat: number; lng: number } {
   const randomLng = (Math.random() * (randomRegion.maxLng - randomRegion.minLng)) + randomRegion.minLng;
   
   return { lat: randomLat, lng: randomLng };
+}
+
+export function movePositions(trackData: TrackData[]): TrackData[] {
+  // Define the maximum distance a car can move in one step (in degrees)
+  const maxOffset = 0.005; // About ~50 meters
+
+  // Define a fixed direction vector (e.g., north-east movement)
+  const direction = { latOffset: 0.0004, lngOffset: 0.0003 }; // Adjust these values as needed
+
+  // Map through the array and modify each set of coordinates
+  return trackData.map(track => {
+       // Generate random offsets for latitude and longitude
+       const randomLatOffset = (Math.random() - 0.5) * 2 * maxOffset;
+       const randomLngOffset = (Math.random() - 0.5) * 2 * maxOffset;
+
+       // Apply the offsets to the current coordinates
+       const newLat = track.coordinates.lat + randomLatOffset;
+       const newLng = track.coordinates.lng + randomLngOffset;
+
+      // Return the modified track data
+      return { 
+        number: track.number, 
+        coordinates: { lat: newLat, lng: newLng }, 
+        traveledKilometers: track.traveledKilometers
+      };
+  });
 }
